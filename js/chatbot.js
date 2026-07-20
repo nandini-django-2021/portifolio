@@ -1,191 +1,122 @@
-// ===== AI Chatbot Widget =====
-// Frontend for chatbot interaction with OpenAI backend
-
-class AIAssistant {
+// AI Chatbot widget
+class ChatbotWidget {
     constructor() {
-        this.chatbotToggle = document.getElementById('chatbotToggle');
-        this.chatbotPanel = document.getElementById('chatbotPanel');
-        this.closeChatbot = document.getElementById('closeChatbot');
-        this.chatbotInput = document.getElementById('chatbotInput');
-        this.sendBtn = document.getElementById('sendBtn');
-        this.messagesContainer = document.getElementById('chatbotMessages');
-
+        this.toggle = document.getElementById('chatbot-toggle');
+        this.widget = document.getElementById('chatbot-widget');
+        this.close = document.getElementById('chatbot-close');
+        this.messagesContainer = document.getElementById('chat-messages');
+        this.input = document.getElementById('chat-input');
+        this.sendBtn = document.getElementById('chat-send');
+        this.isOpen = false;
         this.conversationHistory = [];
-        this.isLoading = false;
-
         this.init();
     }
-
+    
     init() {
-        // Toggle chatbot panel
-        if (this.chatbotToggle) {
-            this.chatbotToggle.addEventListener('click', () => this.togglePanel());
-        }
-
-        // Close chatbot
-        if (this.closeChatbot) {
-            this.closeChatbot.addEventListener('click', () => this.togglePanel());
-        }
-
-        // Send message on button click
-        if (this.sendBtn) {
-            this.sendBtn.addEventListener('click', () => this.sendMessage());
-        }
-
-        // Send message on Enter key
-        if (this.chatbotInput) {
-            this.chatbotInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    this.sendMessage();
-                }
-            });
-        }
-
-        console.log('[v0] AI Assistant initialized');
-    }
-
-    togglePanel() {
-        if (this.chatbotPanel) {
-            this.chatbotPanel.classList.toggle('active');
-
-            // Focus on input when opening
-            if (this.chatbotPanel.classList.contains('active')) {
-                setTimeout(() => {
-                    if (this.chatbotInput) {
-                        this.chatbotInput.focus();
-                    }
-                }, 100);
+        this.toggle.addEventListener('click', () => this.toggleWidget());
+        this.close.addEventListener('click', () => this.closeWidget());
+        this.sendBtn.addEventListener('click', () => this.sendMessage());
+        this.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                this.sendMessage();
             }
+        });
+        
+        // Add initial bot message
+        this.addMessage('Hello! I\'m Ghanta\'s AI Assistant. Ask me about her work, skills, or services!', 'bot');
+    }
+    
+    toggleWidget() {
+        if (this.isOpen) {
+            this.closeWidget();
+        } else {
+            this.openWidget();
         }
     }
-
+    
+    openWidget() {
+        this.widget.classList.add('active');
+        this.isOpen = true;
+        this.input.focus();
+    }
+    
+    closeWidget() {
+        this.widget.classList.remove('active');
+        this.isOpen = false;
+    }
+    
     async sendMessage() {
-        const message = this.chatbotInput.value.trim();
-
-        if (!message || this.isLoading) return;
-
-        // Reset input
-        this.chatbotInput.value = '';
-
-        // Add user message to UI
-        this.addMessageToUI('user', message);
-
-        // Disable input while loading
-        this.isLoading = true;
-        this.chatbotInput.disabled = true;
-        this.sendBtn.disabled = true;
-
+        const message = this.input.value.trim();
+        if (!message) return;
+        
+        // Add user message
+        this.addMessage(message, 'user');
+        this.input.value = '';
+        
+        // Show typing indicator
+        this.addMessage('...', 'bot', 'typing');
+        
         try {
-            // Add to conversation history
-            this.conversationHistory.push({
-                role: 'user',
-                content: message,
-            });
-
-            // Send to backend
-            const response = await fetch('/api/chatbot', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    message: message,
-                    conversationHistory: this.conversationHistory,
-                }),
-            });
-
-            if (!response.ok) {
-                throw new Error(`API error: ${response.status}`);
+            // Simulate AI response (replace with real API call)
+            const response = await this.getAIResponse(message);
+            
+            // Remove typing indicator
+            const lastMessage = this.messagesContainer.lastChild;
+            if (lastMessage && lastMessage.classList.contains('typing')) {
+                lastMessage.remove();
             }
-
-            const data = await response.json();
-            const botMessage = data.reply;
-
-            // Add bot message to UI
-            this.addMessageToUI('bot', botMessage);
-
-            // Add to conversation history
-            this.conversationHistory.push({
-                role: 'assistant',
-                content: botMessage,
-            });
-
-            console.log('[v0] Message sent successfully');
+            
+            // Add bot response
+            this.addMessage(response, 'bot');
         } catch (error) {
-            console.error('[v0] Error sending message:', error);
-            this.addMessageToUI('bot', 'Sorry, I encountered an error. Please try again.');
-        } finally {
-            // Re-enable input
-            this.isLoading = false;
-            this.chatbotInput.disabled = false;
-            this.sendBtn.disabled = false;
-            this.chatbotInput.focus();
+            console.error('Error getting response:', error);
+            this.addMessage('Sorry, I encountered an error. Please try again.', 'bot');
         }
     }
-
-    addMessageToUI(role, content) {
+    
+    async getAIResponse(message) {
+        // Mock responses for demo (replace with real OpenAI API call)
+        const responses = [
+            'That\'s a great question! I specialize in UI/UX design and web development.',
+            'I\'d be happy to help! My expertise includes product design, interactive design, and brand strategy.',
+            'I have over 5 years of experience working on amazing digital projects.',
+            'Feel free to check out my portfolio section to see my recent work!',
+            'I\'m always open to discussing new opportunities and collaborations.',
+            'My design approach combines strategic thinking with creative problem-solving.',
+            'Would you like to know more about any specific project?',
+            'I specialize in creating digital experiences that inspire and engage users.'
+        ];
+        
+        return responses[Math.floor(Math.random() * responses.length)];
+    }
+    
+    addMessage(text, sender, className = '') {
         const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${role}-message`;
-
-        const textP = document.createElement('p');
-        textP.textContent = content;
-
-        messageDiv.appendChild(textP);
+        messageDiv.className = `chat-message ${sender} ${className}`;
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        contentDiv.textContent = text;
+        
+        messageDiv.appendChild(contentDiv);
         this.messagesContainer.appendChild(messageDiv);
-
+        
         // Scroll to bottom
         this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
-
-        // Animate message with GSAP if available
-        if (typeof gsap !== 'undefined') {
-            gsap.fromTo(
-                messageDiv,
-                {
-                    opacity: 0,
-                    y: 10,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.3,
-                }
-            );
+        
+        // Store in history
+        if (className !== 'typing') {
+            this.conversationHistory.push({ role: sender === 'user' ? 'user' : 'assistant', content: text });
         }
-    }
-
-    addTypingIndicator() {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = 'message bot-message loading';
-
-        const textP = document.createElement('p');
-        textP.textContent = 'Typing';
-
-        messageDiv.appendChild(textP);
-        this.messagesContainer.appendChild(messageDiv);
-
-        this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
-
-        return messageDiv;
-    }
-
-    removeTypingIndicator(element) {
-        if (element && element.parentNode) {
-            element.parentNode.removeChild(element);
-        }
-    }
-
-    clearHistory() {
-        this.conversationHistory = [];
-        this.messagesContainer.innerHTML = `
-            <div class="message bot-message">
-                <p>Hello! How can I assist you today?</p>
-            </div>
-        `;
     }
 }
 
-// Export initialization function
-function initChatbot() {
-    window.aiAssistant = new AIAssistant();
+// Initialize chatbot
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        new ChatbotWidget();
+    });
+} else {
+    new ChatbotWidget();
 }

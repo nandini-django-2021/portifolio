@@ -3,262 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Portfolio - Digital Designer</title>
+    <meta name="description" content="Ghanta Nandini - Premium Product Designer & Creative Developer">
+    <title>Ghanta Nandini | Product Designer & Creative Developer</title>
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Font Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CDN Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-text">GHANTA NANDINI</div>
+            <div class="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
+            <div class="loading-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div id="cursor" class="cursor"></div>
+    <div id="cursor-follower" class="cursor-follower"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">Portfolio</div>
-            <button class="menu-toggle" id="menuToggle">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-text">GN</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#work">Work</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <p class="hero-greeting">Good afternoon</p>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-greeting">Hey, I'm</div>
                 <h1 class="hero-title">
-                    <span class="typing-text" id="typingText">I'm a Premium Designer</span>
+                    <span class="typed-text"></span>
                 </h1>
-                <p class="hero-subtitle">Crafting beautiful digital experiences with cutting-edge design and seamless interactions</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get in Touch</button>
-                    <button class="btn btn-secondary" onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'})">View Work</button>
+                <p class="hero-subtitle">Crafting digital experiences that inspire, engage, and transform</p>
+                <div class="hero-cta">
+                    <button class="cta-button primary">View My Work</button>
+                    <button class="cta-button secondary">Get In Touch</button>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-3d-container" id="hero3DContainer"></div>
+                <canvas id="canvas-hero"></canvas>
             </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow">↓</div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="work">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="section-container">
-            <h2 class="section-title">Selected Work</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="images/project-1.png" alt="Timeline Project">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Timeline</h3>
-                        <p>Building a seamless path to better cellular health</p>
-                        <div class="portfolio-tags">
-                            <span>Design</span>
-                            <span>Development</span>
-                            <span>Strategy</span>
-                        </div>
-                    </div>
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a product designer and creative developer with a passion for creating beautiful, functional digital experiences. With expertise in UI/UX design, web development, and interactive design, I help brands tell their stories through digital innovation.</p>
+                    <p>My approach combines strategic thinking, creative problem-solving, and technical expertise to deliver solutions that not only look beautiful but also drive measurable results.</p>
                 </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="images/project-2.png" alt="Siesta Campers Project">
+                
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Projects Completed</div>
                     </div>
-                    <div class="portfolio-info">
-                        <h3>Siesta Campers</h3>
-                        <p>Elevating Portugal's premier van rental company</p>
-                        <div class="portfolio-tags">
-                            <span>Design</span>
-                            <span>Branding</span>
-                            <span>Mobile</span>
-                        </div>
+                    <div class="stat">
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">Years Experience</div>
                     </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="images/project-3.png" alt="Dr Julia Project">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Dr. Julia Woehr</h3>
-                        <p>Distilling architectural impact to its spatial essence</p>
-                        <div class="portfolio-tags">
-                            <span>Design</span>
-                            <span>Development</span>
-                            <span>CMS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="images/project-4.png" alt="Luxury Brand Project">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Fahrplan guru</h3>
-                        <p>Bringing clarity to complex travel navigation</p>
-                        <div class="portfolio-tags">
-                            <span>Design</span>
-                            <span>UX</span>
-                            <span>Research</span>
-                        </div>
+                    <div class="stat">
+                        <div class="stat-number" data-target="100">0</div>
+                        <div class="stat-label">Happy Clients</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
         <div class="section-container">
-            <h2 class="section-title">Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">01</div>
+            <div class="section-header">
+                <h2>Skills & Expertise</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
                     <h3>UI/UX Design</h3>
-                    <p>Creating intuitive and beautiful user interfaces that delight and engage users</p>
+                    <p>Creating intuitive and beautiful user interfaces with a focus on user-centered design principles.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">02</div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
                     <h3>Web Development</h3>
-                    <p>Building performant, accessible, and responsive web applications</p>
+                    <p>Building responsive, performant web applications using modern technologies and best practices.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">03</div>
-                    <h3>Brand Strategy</h3>
-                    <p>Developing comprehensive branding solutions that resonate with audiences</p>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">✨</div>
+                    <h3>Interactive Design</h3>
+                    <p>Designing smooth, engaging interactions that bring digital products to life.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">04</div>
-                    <h3>Animation & Motion</h3>
-                    <p>Crafting smooth, purposeful animations that enhance user experience</p>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3>Product Strategy</h3>
+                    <p>Strategic planning and execution to create products that solve real problems.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🎭</div>
+                    <h3>Brand Design</h3>
+                    <p>Developing comprehensive brand identities that resonate with target audiences.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>Performance</h3>
+                    <p>Optimizing products for speed, accessibility, and user experience excellence.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline">
         <div class="section-container">
-            <h2 class="section-title">Testimonials</h2>
-            <div class="testimonials-carousel">
-                <div class="testimonial-slide active">
-                    <blockquote>"The design work was exceptional. They understood our vision perfectly and delivered beyond expectations."</blockquote>
-                    <p class="testimonial-author">- Sarah Anderson, CEO at TechVentures</p>
-                </div>
-                <div class="testimonial-slide">
-                    <blockquote>"Working with this team was a game-changer. Their attention to detail and creative solutions transformed our brand."</blockquote>
-                    <p class="testimonial-author">- Michael Chen, Founder at DesignStudio</p>
-                </div>
-                <div class="testimonial-slide">
-                    <blockquote>"The final product exceeded all our expectations. Professional, creative, and delivered on time."</blockquote>
-                    <p class="testimonial-author">- Emma Wilson, Marketing Director at InnovateNow</p>
-                </div>
+            <div class="section-header">
+                <h2>Journey</h2>
+                <div class="header-line"></div>
             </div>
-            <div class="carousel-controls">
-                <button class="carousel-btn" id="prevBtn">←</button>
-                <div class="carousel-indicators">
-                    <span class="indicator active" data-slide="0"></span>
-                    <span class="indicator" data-slide="1"></span>
-                    <span class="indicator" data-slide="2"></span>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>2024 - Present</h3>
+                        <p>Lead Product Designer at Tech Innovation Co</p>
+                        <span class="timeline-tag">Leadership</span>
+                    </div>
                 </div>
-                <button class="carousel-btn" id="nextBtn">→</button>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>2022 - 2024</h3>
+                        <p>Senior UX/UI Designer at Creative Studios</p>
+                        <span class="timeline-tag">Design</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>2020 - 2022</h3>
+                        <p>Product Designer at Digital Agency</p>
+                        <span class="timeline-tag">Product</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>2018 - 2020</h3>
+                        <p>UI/UX Designer & Junior Developer</p>
+                        <span class="timeline-tag">Growth</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <!-- Projects Section -->
+    <section id="work" class="projects">
         <div class="section-container">
-            <h2 class="section-title">Let's Work Together</h2>
-            <p class="section-subtitle">If you would like to discuss a project or just say hi, I'm always down to chat.</p>
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-project="1">
+                    <div class="project-image">
+                        <img src="images/project-1.png" alt="Healthcare Platform">
+                        <div class="project-overlay">
+                            <button class="view-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Healthcare Platform</h3>
+                        <p>A comprehensive health management system with real-time data visualization.</p>
+                        <div class="project-tags">
+                            <span>Design</span>
+                            <span>Development</span>
+                            <span>Healthcare</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
+                
+                <div class="project-card" data-project="2">
+                    <div class="project-image">
+                        <img src="images/project-2.png" alt="E-commerce Platform">
+                        <div class="project-overlay">
+                            <button class="view-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>Modern shopping experience with AI-driven recommendations and smooth checkout.</p>
+                        <div class="project-tags">
+                            <span>Design</span>
+                            <span>Development</span>
+                            <span>E-commerce</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                
+                <div class="project-card" data-project="3">
+                    <div class="project-image">
+                        <img src="images/project-3.png" alt="Social Network">
+                        <div class="project-overlay">
+                            <button class="view-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Social Network</h3>
+                        <p>Next-generation social platform with innovative community features.</p>
+                        <div class="project-tags">
+                            <span>Design</span>
+                            <span>Development</span>
+                            <span>Social</span>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
+                
+                <div class="project-card" data-project="4">
+                    <div class="project-image">
+                        <img src="images/project-4.png" alt="Analytics Dashboard">
+                        <div class="project-overlay">
+                            <button class="view-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Analytics Dashboard</h3>
+                        <p>Powerful analytics platform for data-driven decision making.</p>
+                        <div class="project-tags">
+                            <span>Design</span>
+                            <span>Development</span>
+                            <span>Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- AI Chatbot Widget -->
-    <div class="chatbot-widget" id="chatbotWidget">
-        <button class="chatbot-toggle" id="chatbotToggle">
-            <span class="chat-icon">💬</span>
-        </button>
-        <div class="chatbot-panel" id="chatbotPanel">
-            <div class="chatbot-header">
-                <h3>Assistant</h3>
-                <button class="close-btn" id="closeChatbot">×</button>
-            </div>
-            <div class="chatbot-messages" id="chatbotMessages">
-                <div class="message bot-message">
-                    <p>Hello! How can I assist you today?</p>
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-project-image" src="" alt="Project">
                 </div>
-            </div>
-            <div class="chatbot-input">
-                <input type="text" id="chatbotInput" placeholder="Type your message...">
-                <button id="sendBtn" class="send-btn">Send</button>
+                <div class="modal-info">
+                    <h2 id="modal-project-title"></h2>
+                    <p id="modal-project-description"></p>
+                    <div class="modal-tags" id="modal-project-tags"></div>
+                    <button class="cta-button primary">View Live Project</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p><a href="mailto:hello@portfolio.com">hello@portfolio.com</a></p>
+    <!-- AI Chatbot Section -->
+    <section id="chatbot-section" class="chatbot-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Let's Talk</h2>
+                <div class="header-line"></div>
             </div>
-            <div class="footer-section">
-                <h4>Social</h4>
-                <ul>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                </ul>
+            <p class="section-subtitle">Chat with my AI assistant to learn more about my work</p>
+        </div>
+    </section>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <div class="chatbot-header">
+            <h3>Ghanta's AI Assistant</h3>
+            <button id="chatbot-close" class="chatbot-close">&times;</button>
+        </div>
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Ask me anything...">
+            <button id="chat-send" class="chat-send">Send</button>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle -->
+    <button id="chatbot-toggle" class="chatbot-toggle">
+        <span>💬</span>
+    </button>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <div class="header-line"></div>
             </div>
-            <div class="footer-section">
-                <h4>Pages</h4>
-                <ul>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's create something amazing together</h3>
+                    <p>Whether you have a project in mind or just want to say hi, feel free to reach out. I'm always open to new opportunities and collaborations.</p>
+                    
+                    <div class="contact-links">
+                        <a href="mailto:hello@ghantanandini.com" class="contact-link">
+                            <span>Email</span>
+                            <span>hello@ghantanandini.com</span>
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span>LinkedIn</span>
+                            <span>linkedin.com/in/ghantanandini</span>
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span>Twitter</span>
+                            <span>@ghantanandini</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button primary">Send Message</button>
+                </form>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Premium Portfolio. All rights reserved.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-content">
+                <p>&copy; 2024 Ghanta Nandini. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Credits</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- External Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@r128/build/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/plugins/PixiPlugin.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.0/dist/lenis.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
-
-    <!-- Application Scripts -->
-    <script src="js/lenis-setup.js"></script>
-    <script src="js/hero-animations.js"></script>
-    <script src="js/scroll-animations.js"></script>
-    <script src="js/carousel.js"></script>
+    <!-- Scripts -->
+    <script src="js/cursor.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/particles.js"></script>
     <script src="js/navigation.js"></script>
+    <script src="js/projects.js"></script>
     <script src="js/chatbot.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
