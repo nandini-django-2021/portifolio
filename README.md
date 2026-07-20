@@ -1,28 +1,29 @@
-# Premium Portfolio Website
+# Ghanta Nandini - Full Stack Developer Portfolio
 
-A sophisticated, light-themed portfolio website built with vanilla HTML/CSS/JavaScript featuring smooth animations, interactive components, and an AI-powered chatbot.
+A modern, elegant portfolio website for Ghanta Nandini - a Full Stack Developer specializing in WordPress, PHP, Django, and modern web technologies. Built with vanilla HTML/CSS/JavaScript featuring smooth animations and interactive components.
 
 ## Features
 
-- **Hero Section**: 3D animated text effects with Typed.js and Three.js
-- **Smooth Scrolling**: Lenis-powered smooth scroll experience throughout the site
-- **Scroll Animations**: GSAP ScrollTrigger animations on portfolio items, services, and testimonials
-- **Portfolio Grid**: Showcase projects with hover effects and filtering
-- **Services Section**: Display services with icons and descriptions
-- **Testimonials**: Interactive carousel with client testimonials
-- **Contact Form**: Fully functional contact form with validation
-- **AI Chatbot**: OpenAI GPT-powered chatbot widget for visitor engagement
-- **Responsive Design**: Mobile-first design with full responsiveness
-- **Hamburger Menu**: Mobile navigation with smooth animations
+- **Professional Hero Section**: Animated intro with Ghanta Nandini's name and professional title
+- **About Section**: Personal introduction and experience overview with animated stats
+- **Skills Showcase**: 6 key technical skills (WordPress, PHP, Django, APIs, Mobile Dev, Performance)
+- **Timeline**: Professional experience from internships to current role at Apptunix Technologies
+- **Project Portfolio**: 4 featured projects showcasing real work (Apptunix, Dating App, APIs, Booking Systems)
+- **Contact Form**: Direct messaging with form validation
+- **AI Chatbot**: Interactive widget to answer visitor questions
+- **Responsive Design**: Mobile-first design optimized for all devices
+- **Smooth Animations**: GSAP ScrollTrigger for elegant scroll-based animations
+- **Fast Loading**: Optimized for performance with 3D canvas animations
 
 ## Tech Stack
 
-- **Vanilla HTML/CSS/JavaScript** - No framework overhead
-- **GSAP 3** - Advanced animations and scroll effects
-- **Three.js** - 3D graphics for hero section
-- **Lenis** - Smooth scrolling library
-- **Typed.js** - Text typing animation
-- **OpenAI API** - AI chatbot integration
+- **Frontend**: Vanilla HTML, CSS, JavaScript (No frameworks needed)
+- **Animations**: GSAP 3 with ScrollTrigger for scroll-based effects
+- **3D Graphics**: Three.js for animated canvas elements
+- **Smooth Scroll**: Lenis library for buttery-smooth scrolling
+- **Typography**: Typed.js for text animation effects
+- **Chat**: Mock AI responses (can be upgraded to real OpenAI API)
+- **Responsive**: Mobile-first CSS with media queries
 
 ## Installation & Setup
 
@@ -136,10 +137,18 @@ For platforms like Netlify:
 
 MIT License - Feel free to use this template for your portfolio
 
-## Support
+## Contact
 
-For issues or questions:
-1. Check the console for error messages (F12)
-2. Ensure all environment variables are set
-3. Verify OpenAI API key is valid
-4. Check browser compatibility
+- **Email**: nandinighanta06@gmail.com
+- **LinkedIn**: linkedin.com/in/ghanta-nandini
+- **GitHub**: Check the portfolio for links
+- **Location**: Eluru, Andhra Pradesh, India
+
+## About Ghanta Nandini
+
+Full Stack Developer with 2+ years of professional experience:
+- **Current Role**: Full Stack Developer at Apptunix Technologies
+- **Expertise**: WordPress, PHP, Django, REST APIs, Mobile App Development
+- **Education**: B.Tech Computer Science, Lovely Professional University (2019-2023)
+- **Certifications**: WordPress & PHP Developer, Full Stack Java Developer, Django Developer
+- **Languages**: English, Hindi, Telugu (Native)
