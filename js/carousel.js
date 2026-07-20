@@ -96,7 +96,7 @@ class TestimonialsCarousel {
     }
 }
 
-// Initialize carousel when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+// Export initialization function
+function initCarousel() {
     new TestimonialsCarousel();
-});
+}

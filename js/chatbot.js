@@ -84,7 +84,7 @@ class AIAssistant {
             });
 
             // Send to backend
-            const response = await fetch('/api/chat', {
+            const response = await fetch('/api/chatbot', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ class AIAssistant {
             }
 
             const data = await response.json();
-            const botMessage = data.message;
+            const botMessage = data.reply;
 
             // Add bot message to UI
             this.addMessageToUI('bot', botMessage);
@@ -185,7 +185,7 @@ class AIAssistant {
     }
 }
 
-// Initialize AI Assistant when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+// Export initialization function
+function initChatbot() {
     window.aiAssistant = new AIAssistant();
-});
+}
