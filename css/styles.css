@@ -373,11 +373,24 @@ a:hover {
     }
 }
 
-#canvas-hero {
+.hero-image-placeholder {
     width: 100%;
     height: 400px;
-    background: var(--bg-secondary);
     border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.15);
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+}
+
+.hero-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.hero-image-placeholder:hover img {
+    transform: scale(1.05);
 }
 
 .scroll-indicator {
@@ -385,47 +398,7 @@ a:hover {
     bottom: var(--spacing-xl);
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-sm);
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
-}
-
-.mouse {
-    width: 24px;
-    height: 36px;
-    border: 2px solid var(--text-secondary);
-    border-radius: 12px;
-    position: relative;
-}
-
-.wheel {
-    width: 2px;
-    height: 6px;
-    background: var(--text-secondary);
-    border-radius: 1px;
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: scroll 1.5s infinite;
-}
-
-@keyframes scroll {
-    0%, 20%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-    60%, 90% { transform: translateX(-50%) translateY(10px); }
-}
-
-.arrow {
-    color: var(--text-secondary);
-    font-size: var(--fs-lg);
+    display: none;
 }
 
 /* ========== SECTION CONTAINER ========== */
