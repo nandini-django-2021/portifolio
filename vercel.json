@@ -2,14 +2,6 @@
   "buildCommand": "echo 'Static site - no build needed'",
   "outputDirectory": ".",
   "public": true,
-  "env": [
-    {
-      "key": "ANTHROPIC_API_KEY",
-      "description": "Your Anthropic API key for Claude AI",
-      "type": "secret",
-      "value": ""
-    }
-  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
