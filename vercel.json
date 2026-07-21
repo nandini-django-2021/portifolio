@@ -4,26 +4,20 @@
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "index.html",
+          "css/**",
+          "js/**",
+          "app/**",
+          "images/**",
+          "public/**"
+        ]
+      }
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/css/(.*)",
-      "dest": "/css/$1"
-    },
-    {
-      "src": "/js/(.*)",
-      "dest": "/js/$1"
-    },
-    {
-      "src": "/app/(.*)",
-      "dest": "/app/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "server.js"
