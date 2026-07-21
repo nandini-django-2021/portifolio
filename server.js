@@ -23,12 +23,23 @@ const server = http.createServer((req, res) => {
   }
 
   // Handle static files
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+  let requestPath = req.url === '/' ? '/index.html' : req.url;
+  
+  // Prevent path traversal attacks
+  requestPath = requestPath.split('?')[0]; // Remove query strings
+  if (requestPath.includes('..')) {
+    res.writeHead(400, { 'Content-Type': 'text/plain' });
+    res.end('Bad request');
+    return;
+  }
+
+  let filePath = path.join(__dirname, requestPath);
   
   fs.readFile(filePath, (err, data) => {
     if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end('404 Not Found');
+      console.error(`[v0] File not found: ${filePath}`);
+      res.writeHead(404, { 'Content-Type': 'text/html' });
+      res.end('<html><body><h1>404 Not Found</h1><p>The requested file does not exist.</p></body></html>');
       return;
     }
 
