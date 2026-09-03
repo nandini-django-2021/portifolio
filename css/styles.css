@@ -114,10 +114,11 @@ a {
 
 a:hover {
     color: rgb(14, 165, 233);
+    text-decoration:none;
 }
-.contact-links>a:hover {
+.contact-links a:hover {
    color: #ffffff !important;
-   text-decoration: underline;
+   text-decoration: underline !important;
 }
 /* ========== NAVBAR ========== */
 .navbar {
