@@ -113,10 +113,12 @@ a {
 }
 
 a:hover {
-    color: #ffffff;
+    color: rgb(14, 165, 233);
+}
+.contact-links a:hover {
+   color: #ffffff !important;
     text-decoration: underline;
 }
-
 /* ========== NAVBAR ========== */
 .navbar {
     position: fixed;
