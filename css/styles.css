@@ -113,7 +113,8 @@ a {
 }
 
 a:hover {
-    color: #0EA5E9;
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 /* ========== NAVBAR ========== */
