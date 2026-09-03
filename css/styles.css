@@ -629,7 +629,6 @@ a:hover {
     background: var(--color-accent);
     border-radius: 2px;
 }
-
 .about-content {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -910,7 +909,6 @@ a:hover {
 .chatbot-section {
     padding: var(--spacing-3xl) 0;
     background: var(--bg-secondary);
-    text-align: center;
 }
 
 .chatbot-toggle {
@@ -1063,7 +1061,10 @@ a:hover {
 }
 
 /* ========== CONTACT SECTION ========== */
-.contact .section-header h2,
+.contact .section-header h2
+{
+    color: white;
+}
 .contact .section-header .header-line {
     color: white;
     background: white;
@@ -1073,6 +1074,10 @@ a:hover {
     font-size: var(--fs-lg);
     margin-bottom: var(--spacing-2xl);
     color: rgba(255, 255, 255, 0.9);
+}
+
+.chatbot-section .section-subtitle {
+    color: #64748B;
 }
 
 .contact-content {
