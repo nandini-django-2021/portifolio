@@ -47,7 +47,7 @@ class ContactForm {
         formData.append('message', message);
 
         // Optional subject
-        formData.append('subject', 'New Message From Portfolio');
+        formData.append('subject', 'You got a message from portfolio');
 
         try {
             const response = await fetch(
@@ -64,8 +64,6 @@ class ContactForm {
 
             if (data.success) {
                 submitBtn.textContent = 'Message Sent!';
-
-                alert('Success! Your message has been sent.');
 
                 this.form.reset();
 
