@@ -27,7 +27,7 @@ class ChatbotWidget {
 
         // Initial bot message
         this.addMessage(
-            "Hello! I'm Ghanta's AI Assistant. Ask me about her skills, experience, projects, or services!",
+            "Hello! I'm Nandini's AI Assistant. Ask me about her skills, experience, projects, or services!",
             'bot'
         );
     }
@@ -111,7 +111,7 @@ class ChatbotWidget {
             text.includes('good morning') ||
             text.includes('good evening')
         ) {
-            return "Hello! 👋 I'm Ghanta's AI Assistant. You can ask me about her WordPress experience, skills, projects, or services.";
+            return "Hello! 👋 I'm Nandini's AI Assistant. You can ask me about her WordPress experience, skills, projects, or services.";
         }
 
         // About
@@ -120,7 +120,7 @@ class ChatbotWidget {
             text.includes('about') ||
             text.includes('introduce')
         ) {
-            return "Ghanta is a WordPress Developer with 3+ years of experience building and customizing responsive websites, web applications, and dynamic WordPress solutions.";
+            return "Nandini is a WordPress Developer with 3+ years of experience building and customizing responsive websites, web applications, and dynamic WordPress solutions.";
         }
 
         // Experience
@@ -128,7 +128,7 @@ class ChatbotWidget {
             text.includes('experience') ||
             text.includes('years')
         ) {
-            return "Ghanta has 3+ years of experience in WordPress development, working with custom websites, themes, plugins, WooCommerce, ACF, page builders, APIs, and web technologies.";
+            return "Nandini has 3+ years of experience in WordPress development, working with custom websites, themes, plugins, WooCommerce, ACF, page builders, APIs, and web technologies.";
         }
 
         // WordPress
@@ -136,12 +136,12 @@ class ChatbotWidget {
             text.includes('wordpress') ||
             text.includes('cms')
         ) {
-            return "Ghanta specializes in WordPress development, including custom themes, plugin customization, custom post types, ACF, WooCommerce, Elementor, Beaver Builder, REST APIs, and third-party integrations.";
+            return "Nandini specializes in WordPress development, including custom themes, plugin customization, custom post types, ACF, WooCommerce, Elementor, Beaver Builder, REST APIs, and third-party integrations.";
         }
 
         // PHP
         if (text.includes('php')) {
-            return "Yes. PHP is one of Ghanta's core development skills. She has used PHP extensively for WordPress customization, custom functionality, themes, plugins, and backend development.";
+            return "Yes. PHP is one of Nandini's core development skills. She has used PHP extensively for WordPress customization, custom functionality, themes, plugins, and backend development.";
         }
 
         // WooCommerce
@@ -150,7 +150,7 @@ class ChatbotWidget {
             text.includes('ecommerce') ||
             text.includes('e-commerce')
         ) {
-            return "Ghanta has experience working with WooCommerce, including product-related functionality, customization, layouts, and e-commerce website development.";
+            return "Nandini has experience working with WooCommerce, including product-related functionality, customization, layouts, and e-commerce website development.";
         }
 
         // ACF
@@ -158,12 +158,12 @@ class ChatbotWidget {
             text.includes('acf') ||
             text.includes('advanced custom fields')
         ) {
-            return "Ghanta has hands-on experience with Advanced Custom Fields (ACF), using it to create dynamic content, custom fields, and flexible WordPress website structures.";
+            return "Nandini has hands-on experience with Advanced Custom Fields (ACF), using it to create dynamic content, custom fields, and flexible WordPress website structures.";
         }
 
         // Elementor
         if (text.includes('elementor')) {
-            return "Ghanta has strong experience with Elementor, including custom layouts, responsive designs, dynamic content, and advanced customization.";
+            return "Nandini has strong experience with Elementor, including custom layouts, responsive designs, dynamic content, and advanced customization.";
         }
 
         // Beaver Builder
@@ -171,12 +171,12 @@ class ChatbotWidget {
             text.includes('beaver builder') ||
             text.includes('beaver')
         ) {
-            return "Yes, Ghanta has experience working with Beaver Builder for creating and customizing responsive WordPress websites.";
+            return "Yes, Nandini has experience working with Beaver Builder for creating and customizing responsive WordPress websites.";
         }
 
         // AppPresser
         if (text.includes('apppresser')) {
-            return "Ghanta has also worked with AppPresser for WordPress-based mobile application solutions.";
+            return "Nandini has also worked with AppPresser for WordPress-based mobile application solutions.";
         }
 
         // JavaScript
@@ -186,7 +186,7 @@ class ChatbotWidget {
             text.includes('jquery') ||
             text.includes('ajax')
         ) {
-            return "Ghanta works with JavaScript, jQuery, and AJAX for interactive functionality, dynamic content, animations, forms, and custom website features.";
+            return "Nandini works with JavaScript, jQuery, and AJAX for interactive functionality, dynamic content, animations, forms, and custom website features.";
         }
 
         // HTML / CSS
@@ -196,12 +196,12 @@ class ChatbotWidget {
             text.includes('frontend') ||
             text.includes('front end')
         ) {
-            return "Ghanta has strong front-end development experience with HTML5, CSS3, JavaScript, responsive design, animations, and modern website interfaces.";
+            return "Nandini has strong front-end development experience with HTML5, CSS3, JavaScript, responsive design, animations, and modern website interfaces.";
         }
 
         // Laravel
         if (text.includes('laravel')) {
-            return "Ghanta also has experience with Laravel and PHP-based web application development.";
+            return "Nandini also has experience with Laravel and PHP-based web application development.";
         }
 
         // REST API
@@ -209,7 +209,7 @@ class ChatbotWidget {
             text.includes('api') ||
             text.includes('rest')
         ) {
-            return "Ghanta has experience working with REST APIs, including API integration and developing API-based functionality for websites and applications.";
+            return "Nandini has experience working with REST APIs, including API integration and developing API-based functionality for websites and applications.";
         }
 
         // MySQL / Database
@@ -218,7 +218,7 @@ class ChatbotWidget {
             text.includes('database') ||
             text.includes('sql')
         ) {
-            return "Ghanta has experience working with MySQL and SQL databases as part of WordPress and web application development.";
+            return "Nandini has experience working with MySQL and SQL databases as part of WordPress and web application development.";
         }
 
         // Page builders
@@ -228,7 +228,7 @@ class ChatbotWidget {
             text.includes('wpbakery') ||
             text.includes('visual composer')
         ) {
-            return "Ghanta has worked with multiple WordPress page builders, including Elementor, Beaver Builder, Divi, WPBakery, and Visual Composer.";
+            return "Nandini has worked with multiple WordPress page builders, including Elementor, Beaver Builder, Divi, WPBakery, and Visual Composer.";
         }
 
         // SEO
@@ -237,7 +237,7 @@ class ChatbotWidget {
             text.includes('core web vitals') ||
             text.includes('performance')
         ) {
-            return "Ghanta has experience with technical SEO, website performance optimization, Core Web Vitals, and improving WordPress website performance.";
+            return "Nandini has experience with technical SEO, website performance optimization, Core Web Vitals, and improving WordPress website performance.";
         }
 
         // Projects
@@ -246,7 +246,7 @@ class ChatbotWidget {
             text.includes('portfolio') ||
             text.includes('work')
         ) {
-            return "You can explore the Projects section of this portfolio to see examples of Ghanta's work and the technologies used in her projects.";
+            return "You can explore the Projects section of this portfolio to see examples of Nandini's work and the technologies used in her projects.";
         }
 
         // Services
@@ -255,7 +255,7 @@ class ChatbotWidget {
             text.includes('what can you do') ||
             text.includes('what do you do')
         ) {
-            return "Ghanta can help with WordPress website development, customizations, WooCommerce, ACF, Elementor, custom functionality, API integrations, performance optimization, troubleshooting, and website maintenance.";
+            return "Nandini can help with WordPress website development, customizations, WooCommerce, ACF, Elementor, custom functionality, API integrations, performance optimization, troubleshooting, and website maintenance.";
         }
 
         // Contact
@@ -266,7 +266,7 @@ class ChatbotWidget {
             text.includes('job') ||
             text.includes('opportunity')
         ) {
-            return "Ghanta is open to discussing new projects, job opportunities, and collaborations. You can use the Contact section to get in touch.";
+            return "Nandini is open to discussing new projects, job opportunities, and collaborations. You can use the Contact section to get in touch.";
         }
 
         // Skills
@@ -276,11 +276,11 @@ class ChatbotWidget {
             text.includes('technologies') ||
             text.includes('tech stack')
         ) {
-            return "Ghanta's main skills include WordPress, PHP, Laravel, WooCommerce, ACF, Elementor, Beaver Builder, JavaScript, jQuery, AJAX, HTML, CSS, MySQL, REST APIs, technical SEO, and website optimization.";
+            return "Nandini's main skills include WordPress, PHP, Laravel, WooCommerce, ACF, Elementor, Beaver Builder, JavaScript, jQuery, AJAX, HTML, CSS, MySQL, REST APIs, technical SEO, and website optimization.";
         }
 
         // Default response
-        return "I can tell you about Ghanta's WordPress experience, PHP, WooCommerce, ACF, Elementor, Beaver Builder, AppPresser, JavaScript, REST APIs, projects, services, or how to contact her. What would you like to know?";
+        return "I can tell you about Nandini's WordPress experience, PHP, WooCommerce, ACF, Elementor, Beaver Builder, AppPresser, JavaScript, REST APIs, projects, services, or how to contact her. What would you like to know?";
     }
 
     addMessage(text, sender, className = '') {
