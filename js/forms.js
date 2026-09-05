@@ -40,7 +40,7 @@ class ContactForm {
         const formData = new FormData();
 
         // IMPORTANT - add your real Web3Forms access key
-        formData.append('access_key', 'YOUR_REAL_ACCESS_KEY');
+        formData.append('access_key', 'b967f3e9-45fa-4ae8-984a-9806fd1c9ab5');
 
         formData.append('name', name);
         formData.append('email', email);
