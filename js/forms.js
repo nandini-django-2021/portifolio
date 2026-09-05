@@ -15,9 +15,9 @@ class ContactForm {
     }
 
     async handleSubmit() {
-        const name = this.form.querySelector('input[name="name"]').value.trim();
-        const email = this.form.querySelector('input[name="email"]').value.trim();
-        const message = this.form.querySelector('textarea[name="message"]').value.trim();
+        const name = this.form.querySelector('input[type="text"]').value.trim();
+        const email = this.form.querySelector('input[type="email"]').value.trim();
+        const message = this.form.querySelector('textarea').value.trim();
 
         if (!name || !email || !message) {
             alert('Please fill in all fields');
@@ -37,7 +37,17 @@ class ContactForm {
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
 
-        const formData = new FormData(this.form);
+        const formData = new FormData();
+
+        // IMPORTANT - add your real Web3Forms access key
+        formData.append('access_key', 'YOUR_REAL_ACCESS_KEY');
+
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('message', message);
+
+        // Optional subject
+        formData.append('subject', 'New Message From Portfolio');
 
         try {
             const response = await fetch(
@@ -48,11 +58,15 @@ class ContactForm {
                 }
             );
 
-            const result = await response.json();
+            const data = await response.json();
 
-            if (response.ok && result.success) {
+            console.log('Web3Forms Response:', data);
 
+            if (data.success) {
                 submitBtn.textContent = 'Message Sent!';
+
+                alert('Success! Your message has been sent.');
+
                 this.form.reset();
 
                 setTimeout(() => {
@@ -61,22 +75,23 @@ class ContactForm {
                 }, 3000);
 
             } else {
-                alert('Failed to send message. Please try again.');
+                alert('Error: ' + data.message);
 
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
 
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Web3Forms Error:', error);
 
-            alert('Unable to send message. Please try again.');
+            alert('Something went wrong. Please try again.');
 
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
         }
     }
 }
+
 
 // Initialize form
 if (document.readyState === 'loading') {
